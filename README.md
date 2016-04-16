@@ -1,2 +1,2 @@
 # aprendiendoAngular
-Amgular JS
+Angular JS

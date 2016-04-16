@@ -1,0 +1,21 @@
+header,
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+article {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.detail {
+    font-size: 14px;
+    color: gray;
+    margin: 20px;
+}
+
+.disabled {
+    opacity: 0.3;
+    outline: none;
+}
