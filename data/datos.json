@@ -1,0 +1,14 @@
+{
+    "nombre": "nacho",
+    "apellido": "apel",
+    "apodo": "yo",
+    "sexo": "M",
+    "number": 0,
+    "dia": {
+        "lunes": false,
+        "martes": false,
+        "miercoles": false,
+        "jueves": false,
+        "viernes": false
+    }
+}
