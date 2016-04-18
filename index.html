@@ -15,10 +15,6 @@
         <!-- styles Foundation 5 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css"/>
         <link rel="stylesheet" href="app/stylesheets/main.css">
-
-        <!-- script -->
-        <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
-        <script data-require="angular-route@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
     </head>
     <body>
         <!--añadimos aquí el controlador appController ya que será donde mostremos los usuarios-->
@@ -26,6 +22,9 @@
             <ul class="breadcrumbs">
                 <li>
                     <a href="/">Inicio</a>
+                </li>
+                <li>
+                    <a href="/flags">Flags</a>
                 </li>
                 <li>
                     <a href="/list">Listar</a>
@@ -40,9 +39,14 @@
 
             <!--aquí es donde cargarán todas las vistas dependiendo de la url-->
             <div ng-view></div>
+
         </div>
 
-        <!-- <script src="js/ejercicios.js"></script> -->
+        <!-- script -->
+        <script src="https://code.angularjs.org/1.4.8/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+
         <script src="app/scripts/app.js"></script>
         <script src="app/scripts/controllers.js"></script>
     </body>

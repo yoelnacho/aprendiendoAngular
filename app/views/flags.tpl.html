@@ -1,0 +1,17 @@
+<select ng-model="nameCountry"
+    ng-change="loadCountries()">
+    <option value="argentina">argentina</option>
+    <option value="chile">chile</option>
+    <option value="uruguay">uruguay</option>
+    <option value="brazil">brazil</option>
+</select>
+
+<ul>
+    <li ng-repeat="country in countries">
+        <h4>{{country.name}}</h4>
+        <img src="http://www.geonames.org/flags/x/{{country.alpha2Code|lowercase}}.gif" alt="{{country.name}}" />
+        <p>
+            {{country.population|number:0}} habitantes.
+        </p>
+    </li>
+</ul>

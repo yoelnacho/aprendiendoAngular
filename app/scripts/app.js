@@ -24,6 +24,11 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'app/views/delete.tpl.html',
             controller  : 'deleteController'
         })
+        .when('/flags', {
+            title: 'Flags',
+            templateUrl : 'app/views/flags.tpl.html',
+            controller  : 'flagsController'
+        })
         .otherwise({
             redirectTo: '/'
     });
