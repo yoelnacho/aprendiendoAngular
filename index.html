@@ -1,154 +1,49 @@
 <!doctype html>
-<html class="no-js" lang="es" ng-app="app">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Aprendiendo AngularJs</title>
+<html class="no-js" lang="es" ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <base href="/">
 
-    <meta name="description" content="Aprendiendo AngularJs">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aprendiendo AngularJs</title>
 
-    <!-- styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
-</head>
-<body ng-controller="NavController">
+        <!--<style type="text/css">[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}</style>-->
 
-    <header>
-        <select ng-model="nav">
-            <option value="home">Home</option>
-            <option value="scope">$scope</option>
-            <option value="events">Eventos</option>
-            <option value="inputData">Entrada de datos</option>
-            <option value="form">Formularios</option>
-            <option value="services">Servicios</option>
-            <option value="http">$http</option>
-        </select>
-    </header>
+        <!-- styles Foundation 5 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css"/>
+        <link rel="stylesheet" href="app/stylesheets/main.css">
 
-    <h1 ng-if="nav === 'home'">Navegar desde el select</h1>
-
-    <section ng-controller="MiController">
-
-        <article ng-if="nav === 'scope'">
-            <h2>$scope de un 'model' <small>eg: 'message'</small></h2>
-            <p><small>result:</small> {{message}}</p>
-            <div class="detail">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero amet aperiam praesentium neque voluptatum eum in saepe delectus, rerum quos fugiat quisquam magni illo quae numquam quibusdam aliquam, soluta maxime!
-            </div>
-        </article>
-
-
-        <article ng-if="nav === 'events'">
-            <h2>Utilizando Eventos "ng-click" <small>eg: 'message'</small></h2>
-            <p><small>result:</small> {{message}}</p>
-            <button ng-click="cambiarMensaje()">Cambiar estado de una variable</button>
-            <div class="detail">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero amet aperiam praesentium neque voluptatum eum in saepe delectus, rerum quos fugiat quisquam magni illo quae numquam quibusdam aliquam, soluta maxime!
-            </div>
-        </article>
-    </section>
-
-    <section ng-controller="PersonalController">
-        <article ng-if="nav === 'inputData'">
-            <h2>Entrada de datos <small>eg: 'message'</small></h2>
-            <input type="text" ng-model="message" />
-            <br />
-            <label><small>result:</small> {{message}}</label>
-            <div class="detail">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero amet aperiam praesentium neque voluptatum eum in saepe delectus, rerum quos fugiat quisquam magni illo quae numquam quibusdam aliquam, soluta maxime!
-            </div>
-        </article>
-
-        <article ng-if="nav === 'form'">
-            <h2>Formularios</h2>
-
-            <form>
-                <fieldset>
-                    <legend>Datos Personales - inputs</legend>
-                    <label for="nombre">Nombre:</label>
-                    <input id="nombre" name="nombre" type="text" ng-model="personal.nombre" />
-                    <br>
-                    <label for="apellido">Apellido:</label>
-                    <input id="apellido" name="apellido" type="text" ng-model="personal.apellido" />
-                    <br>
-                    <label for="apodo">Apodo:</label>
-                    <input id="apodo" name="apodo" type="text" ng-model="personal.apodo" />
-                    <br>
-                </fieldset>
-                <br />
-
-                <fieldset>
-                    <legend>Datos Personales - select</legend>
-                    <label for="sexo">Sexo:</label>
-                    <select id="sexo" name="sexo" type="checkbox" ng-model="personal.sexo">
-                        <option value="">--Elige opcion--</option>
-                        <option value="H">Hombre</option>
-                        <option value="M">Mujer</option>
-                    </select>
-                </fieldset>
-                <br />
-
-                <fieldset>
-                    <legend>Datos Personales - checkbox</legend>
-                    <label for="lunes">Lunes:</label>
-                    <input id="lunes" name="lunes" type="checkbox" ng-model="presonal.dias.lunes" />
-                    <br>
-                    <label for="martes">Martes:</label>
-                    <input id="martes" name="martes" type="checkbox" ng-model="presonal.dias.martes" />
-                    <br>
-                    <label for="miercoles">Miércoles:</label>
-                    <input id="miercoles" name="miercoles" type="checkbox" ng-model="presonal.dias.miercoles" />
-                    <br>
-                    <label for="jueves">Jueves:</label>
-                    <input id="jueves" name="jueves" type="checkbox" ng-model="presonal.dias.jueves" />
-                    <br>
-                    <label for="viernes">Viernes:</label>
-                    <input id="viernes" name="viernes" type="checkbox" ng-model="presonal.dias.viernes" />
-                    <br>
-                </fieldset>
-                <br />
-
-                <fieldset>
-                    <legend>Directiva ng-disabled - Si es === 0 queda deshabilitado</legend>
-                    <label for="number">Number:</label>
-                    <input type="number" name="number" ng-model="personal.number" />
-                    <button ng-disabled="personal.number === 0" ng-class="{'disabled': personal.number === 0}" type="button" ng-click="personal.number = 0">
-                        <span ng-show="personal.number === 0">Habilitar</span>
-                        <span ng-show="personal.number !== 0">Volver valor a 0</span></button>
-
-                    <label ng-show="personal.number === 0">Mayor o menor a 0!</label>
-                </fieldset>
-                <br />
-            </form>
-        </article>
-
-        <article ng-if="nav === 'services'">
-            <h2>Servicios <small>eg: 'message'</small></h2>
-
-            <div class="detail">
-                <strong>¿Qué es un servicio?</strong> Es un objeto JavaScript que nos permite obtener información. Aparentemente nada nuevo que entender, sería por ejemplo un DAO en Java o un servicios de Java. Lo importante de ésto es que un servicio nunca 1) interacciona con la propia página, sólo con otros servicios o con un servidor de datos que pueda estar en otro Host.
-            </div>
-        </article>
-    </section>
-
-    <section ng-controller="PersonalDataController">
-        <article ng-if="nav === 'http'">
-            <h2>Servicios <small>http</small></h2>
-
-            <ul ng-repeat="attr in myData">
-                <li>{{attr}}</li>
+        <!-- script -->
+        <script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+        <script data-require="angular-route@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
+    </head>
+    <body>
+        <!--añadimos aquí el controlador appController ya que será donde mostremos los usuarios-->
+        <div class="row">
+            <ul class="breadcrumbs">
+                <li>
+                    <a href="/">Inicio</a>
+                </li>
+                <li>
+                    <a href="/list">Listar</a>
+                </li>
+                <li>
+                    <a href="/add">Añadir usuario</a>
+                </li>
+                <li>
+                    <a href="/delete">Eliminar usuario</a>
+                </li>
             </ul>
 
-            <div class="detail">
-                <strong>¿Qué es un servicio?</strong> Es un objeto JavaScript que nos permite obtener información. Aparentemente nada nuevo que entender, sería por ejemplo un DAO en Java o un servicios de Java. Lo importante de ésto es que un servicio nunca 1) interacciona con la propia página, sólo con otros servicios o con un servidor de datos que pueda estar en otro Host.
-            </div>
-        </article>
-    </section>
+            <!--aquí es donde cargarán todas las vistas dependiendo de la url-->
+            <div ng-view></div>
+        </div>
 
-    <script src="js/main.js"></script>
-</body>
+        <!-- <script src="js/ejercicios.js"></script> -->
+        <script src="app/scripts/app.js"></script>
+        <script src="app/scripts/controllers.js"></script>
+    </body>
 </html>
