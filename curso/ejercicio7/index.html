@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" ng-app="ejemplosApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Curso AngularJs - ejercicio2</title>
+
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/animate.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    </head>
+    <body>
+        <!-- navegación -->
+        <ng-include src="'../../nav.html'"></ng-include>
+
+        <!-- Utilizar un alias para el controlador -->
+        <div class="container" ng-controller="mainCtrl">
+            <h1>Detectar IPs</h1>
+            <h4>Manejo de recursos online</h4>
+            <hr>
+
+            <blockquote>
+                <small></small>
+            </blockquote>
+
+            ip: {{geo.geoplugin_request}} <br>
+            country: {{geo.geoplugin_countryName}} <br>
+            code: {{geo.geoplugin_countryCode}} <br>
+            moneda: {{geo.geoplugin_currencySymbol}} <br>
+
+            <hr>
+            <br> {{geo | json}}
+        </div>
+
+        <!-- script -->
+        <script src="js/app.js"></script>
+    </body>
+</html>
