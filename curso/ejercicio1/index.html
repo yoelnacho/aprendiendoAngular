@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Curso AngularJs ejercicio1</title>
+
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    </head>
+    <body ng-app>
+        <!-- navegación -->
+        <ng-include src="'../../nav.html'"></ng-include>
+
+        <div class="container">
+            <h1>Evalución</h1>
+            <h3>Angular 101</h3>
+
+            <hr>
+
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text"
+                        name="nombre"
+                        id="nombre"
+                        class="form-control"
+                        placeholder="Nombre completo"
+                        ng-model="nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="trabajo">Lugar de trabajo:</label>
+                    <input type="text"
+                        name="trabajo"
+                        id="trabajo"
+                        class="form-control"
+                        placeholder="trabajo"
+                        ng-model="trabajo" />
+                </div>
+                <div class="form-group">
+                    <label for="salario">Salario en dólares:</label>
+                    <input type="text"
+                        name="salario"
+                        id="salario"
+                        class="form-control"
+                        placeholder="salario"
+                        ng-model="salario" />
+                </div>
+            </form>
+
+            <hr>
+
+            <p>Nombre: {{nombre | uppercase}}</p>
+            <p>Lugar de trabajo: {{trabajo | lowercase}}</p>
+            <p>Con un salario de: {{salario | currency}}</p>
+        </div>
+
+        <!-- script -->
+    </body>
+</html>
