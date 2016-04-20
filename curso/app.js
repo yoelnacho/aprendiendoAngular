@@ -31,7 +31,7 @@
                 nombre:"Ejercicio 3",
                 descripcion: [
                     "Funciones encapsuladas correctamente.",
-                    "Cambio de forma al escribir un controlador (para evitar errores en la minificación)",
+                    "Cambio de forma al escribir un Ctrl (para evitar errores en la minificación)",
                     "ng-repeat de un arreglo compuesto"
                 ]
             },
@@ -41,6 +41,7 @@
                 descripcion: [
                     "Filtros para ng-repeat",
                     "Ordenar ng-repeat por orderBy"
+
                 ]
             },
             {
@@ -81,8 +82,18 @@
                 descripcion: [
                     "ng-route",
                     "$routeProvider dependencia",
-                    "anidando contoladores",
+                    "anidando Ctrls",
                     "ng-class"
+                ]
+            },
+            {
+                id:10,
+                nombre:"Ejercicio 10",
+                descripcion: [
+                    "Crear un filtro personalizado para teléfono en la pantalla inicio",
+                    "Filtro limitTo para limitar la cantidad de data a mostrar",
+                    "Filtro limitTo para no mostrar más de 5 registros a la vez",
+                    "$routeParams para obtener desde el Ctrl parametros pasados por URL"
                 ]
             }
 
