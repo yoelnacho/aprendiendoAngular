@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Curso AngularJs</title>
+
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    </head>
+    <body ng-app="nav">
+        <!-- navegación -->
+        <ng-include src="'../nav.html'"></ng-include>
+
+        <div class="container" ng-controller="navCtrl">
+            <h1>Menú de navegación</h1>
+            <h3>Curso de AngularJS</h3>
+            <hr>
+
+            <select class="form-control"
+                ng-hide="true"
+                ng-model="navecacionSelected"
+                ng-options="nav.id as nav.nombre for nav in navegacion">
+                <option value="">Seleccionar</option>
+            </select> <br>
+
+            <!-- Doble ng-repeaet para lorgrar 'for' de un array dentro de otro array -->
+            <table class="table table-striped">
+                <tr>
+                    <th><div style="cursor:pointer" ng-click="columna='nombre';reverse=!reverse"><small ng-show="reverse">&#9650;</small><small ng-show="!reverse">&#9660;</small> Número</div></th>
+                    <th>Descripción</th>
+                    <th>Link</th>
+                </tr>
+                <!-- Ordenar por la var 'columna' con el srting 'nombre'. Hacerlo al cambiar el estado booleano de la var 'reverse' -->
+                <tr ng-repeat="nav in navegacion | orderBy:columna:reverse">
+                    <td>{{nav.nombre}}</td>
+                    <td>
+                        <ol>
+                            <li ng-repeat="info in nav.descripcion">{{info}}</li>
+                        </ol>
+                    </td>
+                    <td><a href="ejercicio{{nav.id}}">ir -></a></td>
+                </tr>
+            </table>
+        </div>
+
+    <!-- script -->
+    <script src="app.js"></script>
+</body>
+</html>
