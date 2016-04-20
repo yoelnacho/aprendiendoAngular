@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es" ng-app="universidadApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Curso AngularJs - ejercicio2</title>
+
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/animate.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    </head>
+    <body>
+        <!-- navegación -->
+        <ng-include src="'../../nav.html'"></ng-include>
+
+        <!-- Utilizar un alias para el controlador -->
+        <div class="container" ng-controller="profesorCtrl as profe">
+            <h1>Profesor</h1>
+            <h4>{{profesor.nombre}}</h4>
+            <hr>
+
+            <div class="row">
+                <!-- imagen del profesor -->
+                <div class="col-sm-3">
+                    <section class="panel">
+                        <div class="panel-body" align="center">
+                            <!-- Cuando el navegador carga todavía no cargó angular y se intenta leer el src (esto va a dar error en consola) -->
+                            <!-- <img src="{{profesor.foto}}" class="img-circle" width="150px" height="150px" alt="" /> -->
+
+                            <!-- Reemplazar src por ng-src -->
+                            <img ng-src="{{profesor.foto}}" class="img-circle" width="150px" height="150px" alt="" />
+                        </div>
+                    </section>
+                </div>
+                <!-- bio del profesor -->
+                <div class="col-sm-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            {{profesor.bio}}
+                            <br><br>
+                            <strong>Edad:</strong> {{profesor.edad}} años. <br>
+                            <br>
+
+                            <!-- Al hacer click copiamos lo que contiene el $scope.profesor y lo asignamos a la variable $scope.editando -->
+                            <button type="button"
+                                class="btn btn-primary"
+                                ng-click="EditarProfesor()">Editar</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Agregamos animación css -->
+            <div class="row animated bounceIn" ng-show="mostrarCaja">
+                <div class="col-sm-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            Nombre:
+                            <input type="text"
+                                class="form-control"
+                                ng-model="editando.nombre"
+                                name="name" /> <br>
+
+
+                            Edad:
+                            <input type="text"
+                                class="form-control"
+                                ng-model="editando.edad"
+                                name="name" /> <br>
+
+                            Bio:
+                            <textarea class="form-control"
+                                ng-model="editando.bio"
+                                rows="8"
+                                cols="40"></textarea>
+                            <br>
+
+                            <button type="button"
+                                class="btn btn-primary"
+                                ng-click="GuardarCambios()">Guardar</button>
+                            <button type="button"
+                                class="btn btn-danger"
+                                ng-click="CancelarCambios()">Cancelar</button>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- script -->
+        <script src="js/app.js"></script>
+    </body>
+</html>
