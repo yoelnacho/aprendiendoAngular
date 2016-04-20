@@ -17,25 +17,11 @@
         <link rel="stylesheet" href="app/stylesheets/main.css">
     </head>
     <body>
+        <!-- navegación -->
+        <ng-include src="'nav.html'"></ng-include>
+        
         <!--añadimos aquí el controlador appController ya que será donde mostremos los usuarios-->
         <div class="row">
-            <ul class="breadcrumbs">
-                <li>
-                    <a href="/">Inicio</a>
-                </li>
-                <li>
-                    <a href="/flags">Flags</a>
-                </li>
-                <li>
-                    <a href="/list">Listar</a>
-                </li>
-                <li>
-                    <a href="/add">Añadir usuario</a>
-                </li>
-                <li>
-                    <a href="/delete">Eliminar usuario</a>
-                </li>
-            </ul>
 
             <!--aquí es donde cargarán todas las vistas dependiendo de la url-->
             <div ng-view></div>
@@ -48,6 +34,6 @@
         <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
 
         <script src="app/scripts/app.js"></script>
-        <script src="app/scripts/controllers.js"></script>
+        <!-- <script src="app/scripts/controllers.js"></script> -->
     </body>
 </html>
