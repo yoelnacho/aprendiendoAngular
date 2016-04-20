@@ -1,0 +1,30 @@
+<h1>Alumnos</h1>
+<h4>Listado de alumnos en el sistema</h4>
+<hr>
+
+<p>{{paginacion}} de {{alumnos.length}}</p>
+<table class="table table-striped">
+    <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Ver</th>
+    </tr>
+    <!-- el primer filtro va mostrando de 5 en 5 (pero los suma) osea que muestra 5, 10, 15 ... -->
+    <!-- el segundo filtro, permite limitar a 5 la cantidad de registros a mostrar por vez -->
+    <tr ng-repeat="alumno in alumnos | limitTo:paginacion | limitTo:-5">
+        <td>{{alumno.id}}</td>
+        <td>{{alumno.nombre}}</td>
+        <td>{{alumno.celular  | telefono}}</td>
+        <td><a href="#/alumno/{{alumno.id}}">Ver Registro</a> </td>
+    </tr>
+</table>
+
+<br>
+
+<button type="button"
+    ng-click="anterior()"
+    class="btn btn-primary">Anterior</button>
+<button type="button"
+    ng-click="siguiente()"
+    class="btn btn-primary">Siguiente</button>
