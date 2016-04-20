@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es" ng-app="universidadApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Curso AngularJs - ejercicio2</title>
+
+        <meta name="description" content="Aprendiendo AngularJs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/animate.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    </head>
+    <body>
+        <!-- navegación -->
+        <ng-include src="'../../nav.html'"></ng-include>
+
+        <!-- Utilizar un alias para el controlador -->
+        <div class="container" ng-controller="listadoCtrl">
+            <h1>Filtros</h1>
+            <h4>para ng-repeat</h4>
+            <hr>
+            <blockquote>
+                <small>Para utilizar más de un filtro en un mismo ng-repeat, hace falta crear un objeto por el cual se van a poner los distintos creiterios de búsqueda.</small>
+                <small>Por ejemplo para filtrar por algún caracter y el sexo, los modelos son, para el input "busqueda.nombre", y para el sexo "busqueda.sexo"</small>
+            </blockquote>
+
+            <div class="row">
+                Búsqueda: <br>
+                <input type="text"
+                    name="busqueda"
+                    class="form-control"
+                    ng-model="busqueda.nombre"
+                    placeholder="Ingrese un valor" /> <br>
+
+                Sexo: <br>
+                <select ng-model="busqueda.sexo" class="form-control">
+                    <option value="">Cualquier</option>
+                    <option value="mujer">Mujeres</option>
+                    <option value="hombre">Hombres</option>
+                </select> <br>
+            </div>
+
+            <table class="table table-striped">
+                <!-- puedo hacer un orderBy haciendo click en la cabecera de la columna que me interesa ordenar. -->
+                <tr>
+                    <th>Avatar</th>
+                    <th> <div style="cursor:pointer" ng-click="columna='nombre';reverse=!reverse">Nombre <small ng-show="reverse">&#9650;</small><small ng-show="!reverse">&#9660;</small></div></th>
+                    <th> <div style="cursor:pointer" ng-click="columna='sexo';reverse=!reverse">Sexo <small ng-show="reverse">&#9650;</small><small ng-show="!reverse">&#9660;</small></div></th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                </tr>
+                <!-- Se aplica el filtro en el ng-repeat creado en base al modelo del input "busqueda" -->
+                <!-- ejemplo de orderBy -> orderby:'nombre', ordena alfabeticamente por el nombre -->
+                <!-- version 1: <tr ng-repeat="persona in personas | filter:busqueda | orderBy:'nombre':reverse"> -->
+                <!-- En la version 2 puedo ordenar dependiendo el estado de la variable 'columna' y esta variable reemplaza al string 'nombre' del orderBy -->
+                <tr ng-repeat="persona in personas | filter:busqueda | orderBy:columna:reverse">
+                    <td> <img ng-src="img/{{persona.avatar}}" width="75px" height="75px" class="img-circle" alt="" /></td>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.sexo}}</td>
+                    <td>{{persona.telefono}}</td>
+                    <td>{{persona.celular}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- script -->
+        <script src="js/app.js"></script>
+    </body>
+</html>
