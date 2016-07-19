@@ -19,6 +19,10 @@ app.config(function($routeProvider){
             templateUrl: "parciales/alumno.html",
             controller: 'alumnoCtrl'
         })
+        .when("/post/:id",{
+            templateUrl: "parciales/blog.html",
+            controller: 'alumnoCtrl'
+        })
         .otherwise({
             redirecTo: "/"
         })

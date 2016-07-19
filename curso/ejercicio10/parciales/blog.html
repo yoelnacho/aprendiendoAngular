@@ -1,0 +1,14 @@
+<h1>Post</h1>
+<h4>{{ post.title }}</h4>
+<hr>
+<p>
+    {{ post.body }}
+</p>
+
+{{ "La página tiene el id: "+post.id}}
+
+<footer><br>
+    <button type="button"
+        ng-click="goBack()"
+        class="btn btn-primary btn-sm">Volver</button>
+</footer>

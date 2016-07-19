@@ -1,0 +1,30 @@
+
+<h1>{{ vm.saludo }}</h1>
+
+<section class="container">
+
+    <form ng-submit="vm.addTodo()">
+        <input  type="text"
+                ng-model="vm.todoText"
+                size="30"
+                placeholder="add new todo here">
+        <input type="submit" value="add">
+    </form>
+
+
+    <h2>To Do List</h2>
+
+    <ul>
+        <li ng-repeat="todo in vm.todos">
+            {{todo.text}}, {{todo.done}}
+        </li>
+    </ul>
+
+    <h2>To Do List <button type="button" ng-click="vm.delete()">X</button></h2>
+
+    <ul>
+        <li ng-repeat="todos in vm.$storage">
+            {{todos.text}}, {{todos.done}}
+        </li>
+    </ul>
+</section>

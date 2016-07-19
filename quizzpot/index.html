@@ -16,7 +16,6 @@
 
     </head>
     <body ng-app="nav">
-        
         <!-- navegación -->
         <ng-include src="'../nav.html'"></ng-include>
 
@@ -47,7 +46,7 @@
                             <li ng-repeat="info in nav.descripcion">{{info}}</li>
                         </ol>
                     </td>
-                    <td><a href="ejercicio{{nav.id}}">ir -></a></td>
+                    <td><a href="{{nav.id}}-{{nav.nombre}}">ir -></a></td>
                 </tr>
             </table>
         </div>

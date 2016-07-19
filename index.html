@@ -12,14 +12,14 @@
 
         <!--<style type="text/css">[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}</style>-->
 
-        <!-- styles Foundation 5 -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css"/>
+        <!-- styles bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="app/stylesheets/main.css">
     </head>
     <body>
         <!-- navegación -->
         <ng-include src="'nav.html'"></ng-include>
-        
+
         <!--añadimos aquí el controlador appController ya que será donde mostremos los usuarios-->
         <div class="row">
 
@@ -28,12 +28,26 @@
 
         </div>
 
+
+        <!-- <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyC9b3G6mBrKnTGXCaRBLhbQm1hkG9oRZ3w",
+            authDomain: "lista-de-tarea.firebaseapp.com",
+            databaseURL: "https://lista-de-tarea.firebaseio.com",
+            storageBucket: "lista-de-tarea.appspot.com",
+          };
+          firebase.initializeApp(config);
+        </script> -->
+
+
         <!-- script -->
-        <script src="https://code.angularjs.org/1.4.8/angular.min.js"></script>
-        <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
-        <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.5/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.5/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.5/angular-resource.min.js"></script>
+        <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
 
         <script src="app/scripts/app.js"></script>
-        <!-- <script src="app/scripts/controllers.js"></script> -->
     </body>
 </html>

@@ -6,7 +6,7 @@
     app.controller('navCtrl', ['$scope', function($scope) {
         $scope.hola = "hola mundo";
 
-        $scope.navecacionSelected = 1;
+        $scope.navegacionSelected = 1;
 
         $scope.navegacion = [
             {

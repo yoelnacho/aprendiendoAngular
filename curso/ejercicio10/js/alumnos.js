@@ -6,6 +6,7 @@ app.controller('alumnosCtrl', ['$scope','$http', function($scope,$http){
     $scope.alumnos = {};
     $scope.paginacion = 5;
 
+    // Json
     $http.get('json/alumnos.json').success(function(data){
         // concatenar a data el array a devolver
         $scope.alumnos = data.alumnos;
